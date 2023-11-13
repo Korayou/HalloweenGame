@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 8851709107953366911}
   - component: {fileID: 3273540879750212746}
   - component: {fileID: 7043082658339895302}
+  - component: {fileID: 510936104859653470}
   m_Layer: 0
   m_Name: Slime_01_Viking
   m_TagString: Untagged
@@ -263,7 +264,7 @@ Animator:
   m_GameObject: {fileID: 6688149642241925542}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: eb340672e17c0af4089e561b61cdc548, type: 3}
-  m_Controller: {fileID: 9100000, guid: 707b944f06051734793367fc0c69bc07, type: 2}
+  m_Controller: {fileID: 9100000, guid: 59cb0269e3374ab44b4062bbaa1c005d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -322,8 +323,24 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &510936104859653470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6688149642241925542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f271d21945f6f434382ac2059065c031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon:
+  - {fileID: 0}
+  - {fileID: 0}
+  skeletonAnimator: {fileID: 0}
 --- !u!1 &7588663013591350367
 GameObject:
   m_ObjectHideFlags: 0

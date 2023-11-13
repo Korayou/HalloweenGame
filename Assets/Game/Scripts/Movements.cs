@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Movements : MonoBehaviour
 {
-    [SerializeField] private float turnSpeed = 20f;
+    public bool IsInWalkingAnimationState { get; set; }    
+    [SerializeField] private float turnSpeed = 100f;
     [SerializeField] private float movSpeed = 0.2f;
 
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
     Animator m_Animator;
     Rigidbody m_Rigidbody;
+    Vector3 worldPosition;
+    Ray ray;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +39,7 @@ public class Movements : MonoBehaviour
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
         m_Rotation = Quaternion.LookRotation(desiredForward);
-        if (m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Walk00"))
+        if (IsInWalkingAnimationState)
         {
             m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * movSpeed * Time.deltaTime);
             m_Rigidbody.MoveRotation(m_Rotation);
