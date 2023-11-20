@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameEnding : MonoBehaviour
 {
@@ -40,13 +41,6 @@ public class GameEnding : MonoBehaviour
 
     void EndLevel()
     {
-        m_Timer += Time.deltaTime;
-
-        exitBackgroundImageCanvasGroup.alpha = m_Timer / fadeDuration;
-
-        if (m_Timer > fadeDuration + displayImageDuration)
-        {
-            Application.Quit();
-        }
+        SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
     }
 }
