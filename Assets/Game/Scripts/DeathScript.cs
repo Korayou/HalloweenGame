@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class DeathScript : MonoBehaviour
 {
-    public GameObject[] weapon;
+    public GameObject[] weapons;
     Animator m_Animator;
     public Animator skeletonAnimator;
+    public AudioSource deathAudio;
     float _DieDuration;
+    private bool _hasPlayedDeathAudio = false;
 
     void Start()
     {
@@ -28,11 +30,16 @@ public class DeathScript : MonoBehaviour
     {
         if (skeletonAnimator.GetComponent<Attack>().IsInAttackingAnimationState)
         {
-            for (int i = 0; i < weapon?.Length; i++)
+            for (int i = 0; i < weapons?.Length; i++)
             {
-                if (weapon[i] != null && weapon[i] == other.gameObject)
+                if (weapons[i] != null && weapons[i] == other.gameObject)
                 {
                     m_Animator.SetBool("isDying", true);
+                    if (!_hasPlayedDeathAudio)
+                    {
+                        deathAudio.Play();
+                        _hasPlayedDeathAudio = true;
+                    }
                     StartCoroutine(Die());
                     break;
                 }
